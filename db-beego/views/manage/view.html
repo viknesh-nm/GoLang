@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="hero-text">
+     <h1>Current Article</h1>    
+   </div>
+ </div>
+</div>
+</div>
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+			<th>Name</th>
+			<th>Contact No.</th>
+			<th>E-mail</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+      </thead>
+      <tbody>
+		
+        {{range $record := .records}}
+        <tr>
+			<td>{{$record.Name}}</td>
+			<td>{{$record.Contact}}</td>
+			<td>{{$record.Email}}</td>
+			<td><a href="/update/{{$record.Id}}">edit</a></td>		  
+			<td><a onclick="return confirm('Are you sure?');" href="/delete/{{$record.Id}}">delete</a></td>		  
+        </tr>
+		
+        {{end}}
+      </tbody>
+      <tfoot>
+        <tr>
+			<td colspan="4"><a href="/add" title="add new article">add new article</a></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
